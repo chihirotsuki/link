@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>其他連結</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-body: #e8e5e1;
+      --card-bg: #f2efeb;
+      --card-secondary: #e3dfda;
+      --card-hover: #dcd7d1;
+      --text-main: #2b2a28;
+      --text-sub: #7a7671;
+      --accent: #8e7b6b;
+      --accent-soft: #c4b8ac;
+      --border-radius: 16px;
+      --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      --font-main: 'Inter', 'Noto Sans TC', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-body);
+      font-family: var(--font-main);
+      color: var(--text-main);
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      padding: 40px 20px;
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(255,255,255,0.5) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(255,255,255,0.4) 0%, transparent 40%);
+    }
+
+    .profile-card {
+      width: 100%;
+      max-width: 440px;
+      background-color: var(--card-bg);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+    }
+
+    /* 頂部橫幅 */
+    .banner {
+      width: 100%;
+      height: 70px;
+      background: linear-gradient(135deg, #dcd6d0 0%, #f0ece8 100%);
+      position: relative;
+      background-image: 
+        radial-gradient(circle at 20% 50%, rgba(255,255,255,0.4) 0%, transparent 50%),
+        repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.1) 10px, rgba(255,255,255,0.1) 20px);
+    }
+
+    .banner-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 22px;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.75);
+      letter-spacing: 6px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      font-style: italic;
+      user-select: none;
+    }
+
+    /* 資訊區 */
+    .info-section {
+      padding: 8px 28px 28px 28px;
+      position: relative;
+    }
+
+    /* ✨ 標題區塊 ✨ */
+    .title-block {
+      margin-bottom: 16px;
+      position: relative;
+      text-align: center;
+    }
+
+    .title-decoration {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--text-sub);
+      margin-bottom: 4px;
+      font-style: italic;
+      letter-spacing: 1px;
+    }
+
+    .title-decoration .line {
+      width: 20px;
+      height: 1px;
+      background-color: var(--accent-soft);
+      display: inline-block;
+    }
+
+    .title-decoration .star {
+      color: var(--accent);
+      font-size: 11px;
+    }
+
+    /* 主標題 */
+    .page-title {
+      font-size: 30px;
+      font-weight: 700;
+      color: var(--text-main);
+      letter-spacing: -1px;
+      line-height: 1.2;
+      position: relative;
+      display: inline-block;
+      padding-bottom: 8px;
+    }
+
+    .page-title::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+      width: 80%;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--accent-soft), transparent);
+      border-radius: 3px;
+    }
+
+    /* 副標題 */
+    .page-subtitle {
+      font-size: 13px;
+      color: var(--text-sub);
+      font-weight: 500;
+      margin-top: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      letter-spacing: 0.3px;
+    }
+
+    .page-subtitle .dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background-color: var(--accent-soft);
+      display: inline-block;
+    }
+
+    /* 漂浮裝飾 */
+    .floating-deco {
+      position: absolute;
+      color: var(--accent-soft);
+      opacity: 0.6;
+      font-size: 14px;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .floating-deco-1 { top: 2px; left: 20px; font-size: 14px; }
+    .floating-deco-2 { top: 28px; left: 40px; font-size: 10px; }
+    .floating-deco-3 { top: 5px; right: 20px; font-size: 12px; }
+    .floating-deco-4 { top: 35px; right: 35px; font-size: 10px; }
+
+    /* 分隔線 */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+      color: var(--text-sub);
+      font-size: 12px;
+      opacity: 0.7;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--card-secondary);
+    }
+
+    /* 連結列表 */
+    .links-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .link-item {
+      background-color: var(--card-secondary);
+      border-radius: 12px;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .link-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background-color: var(--accent-soft);
+      transition: background 0.2s;
+    }
+
+    .link-item:hover {
+      background-color: var(--card-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+    }
+
+    .link-item:hover::before {
+      background-color: var(--accent);
+    }
+
+    .link-item:active {
+      transform: translateY(0);
+    }
+
+    .link-icon {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(145deg, #f7f4f0, #e8e2db);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 19px;
+      color: var(--accent);
+      flex-shrink: 0;
+      position: relative;
+      box-shadow: 
+        inset 0 1px 0 rgba(255, 255, 255, 0.8),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.04),
+        0 2px 4px rgba(0, 0, 0, 0.04);
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow: hidden;
+    }
+
+    /* 圖示上的微光澤 */
+    .link-icon::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 50%;
+      background: linear-gradient(180deg, rgba(255,255,255,0.5), transparent);
+      border-radius: 12px 12px 0 0;
+      pointer-events: none;
+    }
+
+    /* 圖示內部的 icon */
+    .link-icon i {
+      position: relative;
+      z-index: 1;
+      transition: transform 0.25s ease, color 0.25s ease;
+    }
+
+    /* Hover 時圖示容器變化 */
+    .link-item:hover .link-icon {
+      background: linear-gradient(145deg, #fdfbf9, #eee8e1);
+      box-shadow: 
+        inset 0 1px 0 rgba(255, 255, 255, 0.9),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.03),
+        0 4px 8px rgba(142, 123, 107, 0.15);
+      transform: scale(1.05);
+    }
+
+    .link-item:hover .link-icon i {
+      transform: scale(1.1);
+      color: #6f5f52;
+    }
+
+    .link-content {
+      flex: 1;
+      min-width: 0;
+      text-align: left;
+    }
+
+    .link-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 3px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .link-title .tag-mini {
+      background-color: rgba(142, 123, 107, 0.15);
+      color: var(--accent);
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 8px;
+      letter-spacing: 0.3px;
+    }
+
+    .link-url {
+      font-size: 12px;
+      color: var(--text-sub);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .link-url i {
+      font-size: 10px;
+      opacity: 0.6;
+    }
+
+    .copy-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-sub);
+      font-size: 15px;
+      padding: 8px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      flex-shrink: 0;
+    }
+
+    .copy-btn:hover {
+      background-color: rgba(142, 123, 107, 0.15);
+      color: var(--accent);
+    }
+
+    .footer-deco {
+      text-align: center;
+      padding: 16px 24px 20px;
+      font-size: 12px;
+      color: var(--text-sub);
+      opacity: 0.7;
+      font-style: italic;
+      letter-spacing: 0.5px;
+    }
+
+    @media (max-width: 480px) {
+      body { padding: 20px 12px; }
+      .banner { height: 60px; }
+      .info-section { padding: 6px 18px 18px 18px; }
+      .page-title { font-size: 24px; }
+      .link-item { padding: 10px 12px; gap: 12px; }
+      .link-icon { width: 38px; height: 38px; font-size: 16px; border-radius: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="profile-card">
+    <div class="banner">
+      <div class="banner-text">Links</div>
+    </div>
+
+    <div class="info-section">
+      
+      <div class="title-block">
+        <span class="floating-deco floating-deco-1">✧</span>
+        <span class="floating-deco floating-deco-2">♡</span>
+        <span class="floating-deco floating-deco-3">✦</span>
+        <span class="floating-deco floating-deco-4">✧</span>
+
+        <div class="title-decoration">
+          <span class="line"></span>
+          <span class="star">✦</span>
+          <span>MY COLLECTION</span>
+          <span class="star">✦</span>
+          <span class="line"></span>
+        </div>
+
+        <h1 class="page-title">一些神奇東西</h1>
+
+        <div class="page-subtitle">
+          <span>Tsumibito</span>
+          <span class="dot"></span>
+          <span>Miyu</span>
+        </div>
+      </div>
+
+      <div class="divider">✧ 連結列表 ✧</div>
+
+      <div class="links-list" id="linksList"></div>
+
+    </div>
+
+    <div class="footer-deco">
+      ♡ 點擊卡片開啟連結 · 右側按鈕複製 ♡
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      const linksData = [
+        { title: '模組', url: 'https://chihirotsuki.github.io/mod/', icon: 'fa-solid fa-cubes', tag: '模組' },
+        { title: '放在Discord的Bio', url: 'https://chihirotsuki.github.io/tsuki/', icon: 'fa-solid fa-book-open', tag: '社交' },
+        { title: 'walker的Bio', url: 'https://chihirotsuki.github.io/voidwalker/', icon: 'fa-solid fa-book-open', tag: '社交' }
+      ];
+
+      const linksList = document.getElementById('linksList');
+
+      function renderLinks() {
+        if (!linksList) return;
+        if (linksData.length === 0) {
+          linksList.innerHTML = `<div style="text-align:center; padding: 40px 20px; color: var(--text-sub);"><i class="fas fa-link-slash" style="font-size: 32px; opacity: 0.5; margin-bottom: 12px; display: block;"></i><p>目前沒有連結</p></div>`;
+          return;
+        }
+        linksList.innerHTML = '';
+
+        linksData.forEach((link) => {
+          const linkItem = document.createElement('a');
+          linkItem.href = link.url;
+          linkItem.target = '_blank';
+          linkItem.rel = 'noopener noreferrer';
+          linkItem.className = 'link-item';
+
+          const iconDiv = document.createElement('div');
+          iconDiv.className = 'link-icon';
+          
+          const icon = document.createElement('i');
+          icon.className = (link.icon && link.icon.includes('fa-')) ? link.icon : 'fas fa-globe';
+          iconDiv.appendChild(icon);
+
+          const contentDiv = document.createElement('div');
+          contentDiv.className = 'link-content';
+
+          const titleDiv = document.createElement('div');
+          titleDiv.className = 'link-title';
+          titleDiv.textContent = link.title;
+
+          if (link.tag) {
+            const tagSpan = document.createElement('span');
+            tagSpan.className = 'tag-mini';
+            tagSpan.textContent = link.tag;
+            titleDiv.appendChild(tagSpan);
+          }
+
+          const urlDiv = document.createElement('div');
+          urlDiv.className = 'link-url';
+          const linkIconSmall = document.createElement('i');
+          linkIconSmall.className = 'fas fa-arrow-up-right-from-square';
+          urlDiv.appendChild(linkIconSmall);
+          const urlText = document.createElement('span');
+          urlText.textContent = link.url;
+          urlDiv.appendChild(urlText);
+
+          contentDiv.appendChild(titleDiv);
+          contentDiv.appendChild(urlDiv);
+
+          const copyBtn = document.createElement('button');
+          copyBtn.className = 'copy-btn';
+          copyBtn.setAttribute('aria-label', '複製連結');
+          copyBtn.innerHTML = '<i class="fas fa-copy"></i>';
+          copyBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            copyToClipboard(link.url);
+            copyBtn.innerHTML = '<i class="fas fa-check" style="color: #2ecc71;"></i>';
+            setTimeout(() => { copyBtn.innerHTML = '<i class="fas fa-copy"></i>'; }, 1200);
+          });
+
+          linkItem.appendChild(iconDiv);
+          linkItem.appendChild(contentDiv);
+          linkItem.appendChild(copyBtn);
+          linksList.appendChild(linkItem);
+        });
+      }
+
+      function copyToClipboard(text) {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).catch(() => fallbackCopy(text));
+        } else { fallbackCopy(text); }
+      }
+
+      function fallbackCopy(text) {
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        textArea.style.position = 'fixed';
+        textArea.style.opacity = '0';
+        document.body.appendChild(textArea);
+        textArea.select();
+        try { document.execCommand('copy'); } catch (err) {}
+        document.body.removeChild(textArea);
+      }
+
+      renderLinks();
+    })();
+  </script>
+</body>
+</html>
